@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook source-build='2023.1.0' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+
+    <datasource caption='Monthly Summary' inline='true' name='monthly' version='18.1'>
+      <connection class='textscan' directory='data' filename='retail_monthly_summary.csv' password='' server=''>
+        <relation name='retail_monthly_summary.csv' table='[retail_monthly_summary#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='month' ordinal='0' />
+            <column datatype='real' name='total_revenue' ordinal='1' />
+            <column datatype='integer' name='total_quantity' ordinal='2' />
+            <column datatype='integer' name='order_count' ordinal='3' />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Month' datatype='string' name='[month]' role='dimension' type='nominal' />
+      <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+      <column caption='Total Quantity' datatype='integer' name='[total_quantity]' role='measure' type='quantitative' />
+      <column caption='Order Count' datatype='integer' name='[order_count]' role='measure' type='quantitative' />
+    </datasource>
+
+    <datasource caption='Country Summary' inline='true' name='country' version='18.1'>
+      <connection class='textscan' directory='data' filename='retail_country_summary.csv' password='' server=''>
+        <relation name='retail_country_summary.csv' table='[retail_country_summary#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='country' ordinal='0' />
+            <column datatype='real' name='total_revenue' ordinal='1' />
+            <column datatype='integer' name='total_quantity' ordinal='2' />
+            <column datatype='integer' name='order_count' ordinal='3' />
+            <column datatype='integer' name='customers' ordinal='4' />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Country' datatype='string' name='[country]' role='dimension' type='nominal' />
+      <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+      <column caption='Total Quantity' datatype='integer' name='[total_quantity]' role='measure' type='quantitative' />
+      <column caption='Order Count' datatype='integer' name='[order_count]' role='measure' type='quantitative' />
+      <column caption='Customers' datatype='integer' name='[customers]' role='measure' type='quantitative' />
+    </datasource>
+
+    <datasource caption='Customer Summary' inline='true' name='customer' version='18.1'>
+      <connection class='textscan' directory='data' filename='retail_customer_summary.csv' password='' server=''>
+        <relation name='retail_customer_summary.csv' table='[retail_customer_summary#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='customerid' ordinal='0' />
+            <column datatype='real' name='total_revenue' ordinal='1' />
+            <column datatype='integer' name='order_count' ordinal='2' />
+            <column datatype='integer' name='total_quantity' ordinal='3' />
+            <column datatype='string' name='customer_segment' ordinal='4' />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Customer ID' datatype='string' name='[customerid]' role='dimension' type='nominal' />
+      <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+      <column caption='Order Count' datatype='integer' name='[order_count]' role='measure' type='quantitative' />
+      <column caption='Total Quantity' datatype='integer' name='[total_quantity]' role='measure' type='quantitative' />
+      <column caption='Customer Segment' datatype='string' name='[customer_segment]' role='dimension' type='nominal' />
+    </datasource>
+
+    <datasource caption='Product Summary' inline='true' name='product' version='18.1'>
+      <connection class='textscan' directory='data' filename='retail_product_summary.csv' password='' server=''>
+        <relation name='retail_product_summary.csv' table='[retail_product_summary#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='description' ordinal='0' />
+            <column datatype='real' name='total_revenue' ordinal='1' />
+            <column datatype='integer' name='total_quantity' ordinal='2' />
+            <column datatype='integer' name='order_count' ordinal='3' />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Product' datatype='string' name='[description]' role='dimension' type='nominal' />
+      <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+      <column caption='Total Quantity' datatype='integer' name='[total_quantity]' role='measure' type='quantitative' />
+      <column caption='Order Count' datatype='integer' name='[order_count]' role='measure' type='quantitative' />
+    </datasource>
+
+    <datasource caption='Daily Summary' inline='true' name='daily' version='18.1'>
+      <connection class='textscan' directory='data' filename='retail_daily_summary.csv' password='' server=''>
+        <relation name='retail_daily_summary.csv' table='[retail_daily_summary#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='date' name='date' ordinal='0' />
+            <column datatype='real' name='total_revenue' ordinal='1' />
+            <column datatype='integer' name='total_quantity' ordinal='2' />
+            <column datatype='integer' name='order_count' ordinal='3' />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+      <column caption='Total Quantity' datatype='integer' name='[total_quantity]' role='measure' type='quantitative' />
+      <column caption='Order Count' datatype='integer' name='[order_count]' role='measure' type='quantitative' />
+    </datasource>
+
+  </datasources>
+
+  <worksheets>
+
+    <worksheet name='Monthly Revenue Trend'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Monthly Summary' name='monthly' />
+          </datasources>
+          <datasource-dependencies datasource='monthly'>
+            <column caption='Month' datatype='string' name='[month]' role='dimension' type='nominal' />
+            <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxed-to-rect'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+        </panes>
+        <rows>[monthly].[total_revenue]</rows>
+        <cols>[monthly].[month]</cols>
+      </table>
+    </worksheet>
+
+    <worksheet name='Revenue by Country'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Country Summary' name='country' />
+          </datasources>
+          <datasource-dependencies datasource='country'>
+            <column caption='Country' datatype='string' name='[country]' role='dimension' type='nominal' />
+            <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxed-to-rect'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[country].[total_revenue]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[country].[country]</rows>
+        <cols>[country].[total_revenue]</cols>
+      </table>
+    </worksheet>
+
+    <worksheet name='Customer Segments'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Customer Summary' name='customer' />
+          </datasources>
+          <datasource-dependencies datasource='customer'>
+            <column caption='Customer Segment' datatype='string' name='[customer_segment]' role='dimension' type='nominal' />
+            <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxed-to-rect'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[customer].[customer_segment]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[customer].[total_revenue]</rows>
+        <cols>[customer].[customer_segment]</cols>
+      </table>
+    </worksheet>
+
+    <worksheet name='Top Products by Revenue'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Product Summary' name='product' />
+          </datasources>
+          <datasource-dependencies datasource='product'>
+            <column caption='Product' datatype='string' name='[description]' role='dimension' type='nominal' />
+            <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxed-to-rect'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[product].[total_revenue]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[product].[description]</rows>
+        <cols>[product].[total_revenue]</cols>
+      </table>
+    </worksheet>
+
+    <worksheet name='Daily Sales Trend'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Daily Summary' name='daily' />
+          </datasources>
+          <datasource-dependencies datasource='daily'>
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column caption='Total Revenue' datatype='real' name='[total_revenue]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxed-to-rect'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+        </panes>
+        <rows>[daily].[total_revenue]</rows>
+        <cols>[daily].[date]</cols>
+      </table>
+    </worksheet>
+
+    <worksheet name='Quantity vs Orders'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Monthly Summary' name='monthly' />
+          </datasources>
+          <datasource-dependencies datasource='monthly'>
+            <column caption='Month' datatype='string' name='[month]' role='dimension' type='nominal' />
+            <column caption='Total Quantity' datatype='integer' name='[total_quantity]' role='measure' type='quantitative' />
+            <column caption='Order Count' datatype='integer' name='[order_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxed-to-rect'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[monthly].[order_count]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[monthly].[total_quantity]</rows>
+        <cols>[monthly].[month]</cols>
+      </table>
+    </worksheet>
+
+  </worksheets>
+
+  <dashboards>
+
+    <dashboard name='Sales Overview'>
+      <style />
+      <size maxheight='800' maxwidth='1200' minheight='800' minwidth='1200' />
+      <zones>
+        <zone h='100000' id='10' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='50000' id='11' type-v2='layout-flow' param='horz' w='100000' x='0' y='0'>
+            <zone h='50000' id='12' name='Monthly Revenue Trend' w='50000' x='0' y='0' />
+            <zone h='50000' id='13' name='Daily Sales Trend' w='50000' x='50000' y='0' />
+          </zone>
+          <zone h='50000' id='14' type-v2='layout-flow' param='horz' w='100000' x='0' y='50000'>
+            <zone h='50000' id='15' name='Revenue by Country' w='50000' x='0' y='50000' />
+            <zone h='50000' id='16' name='Quantity vs Orders' w='50000' x='50000' y='50000' />
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+
+    <dashboard name='Customer and Product Insights'>
+      <style />
+      <size maxheight='800' maxwidth='1200' minheight='800' minwidth='1200' />
+      <zones>
+        <zone h='100000' id='20' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='100000' id='21' type-v2='layout-flow' param='horz' w='100000' x='0' y='0'>
+            <zone h='100000' id='22' name='Customer Segments' w='50000' x='0' y='0' />
+            <zone h='100000' id='23' name='Top Products by Revenue' w='50000' x='50000' y='0' />
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+
+  </dashboards>
+
+</workbook>
